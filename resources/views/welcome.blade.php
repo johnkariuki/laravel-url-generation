@@ -1,45 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
-
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
+        <title>Generating Laravel Urls</title>
     </head>
     <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
-        </div>
+        <h4>Generate a secure url to a route</h4>
+        <a href="{{ secure_url('/foo') }}">Secure Url</a>
+
+        <h4>Generate a url to a route with  parameters</h4>
+        <a href="{{ url('/url', ['id'=> 'full']) }}">Url with parameters</a>
+
+        <h4>Generate a url to a named route</h4>
+        <a href="{{ route('named_route') }}">Named route</a>
+
+        <h4>Generate A url to an asset</h4>
+        <a href="{{ asset('img/logo.png') }}">Asset Url</a>
+
+        <h4>Generate A url to an asset</h4>
+        <a href="{{ asset('css/style.css') }}">Secure asset Url</a>
     </body>
 </html>

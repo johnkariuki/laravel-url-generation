@@ -16,7 +16,7 @@
  *
  */
 Route::get('/', function () {
-    return "A little about url generation";
+    return view('welcome');
 });
 
 /**
@@ -95,13 +95,14 @@ Route::get('url/to/secure', function () {
 });
 
 /**
- * A named route that calls an action method in
- * FooController
+ * A named route that
  *
  */
 Route::get('url/named', [
-    'uses' => 'FooController@action',
-    'as' => 'named_route'
+    'as' => 'named_route',
+    'uses' => function () {
+        return 'named route';
+    }
 ]);
 
 /**
@@ -122,7 +123,7 @@ Route::get('url/validate', function () {
     if (URL::isValidUrl('http://laravel-urls.local/url/named')) {
         return "valid url";
     }
-    return 'invalid url'
+    return 'invalid url';
 });
 
 /*
