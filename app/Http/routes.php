@@ -95,7 +95,7 @@ Route::get('url/to/secure', function () {
 });
 
 /**
- * A named route that
+ * A named route.
  *
  */
 Route::get('url/named', [
