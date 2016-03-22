@@ -21,30 +21,49 @@ Route::get('/', function () {
 
 /**
  * Get the current Url using the URL
- * facacde
+ * facade
  *
+ * http://laravel-urls.local/foo
  */
 Route::get('/foo', function () {
-    return "<strong>URL::current():</strong> ".  URL::current();
+    return URL::current();
 });
 
 /**
  * Get the current Url using the url
  * Service Container Binding
  *
+ * http://laravel-urls.local/foo
  */
 Route::get('/bar', function () {
-    return "<strong>url()->current():</strong> ".  url()->current();
+    return url()->current();
 });
 
 /**
  * Get the full URL of the current page including the query string
- * paramters
+ * parameters
  *
- * i.e http://example.dev/full/url/?page=2
+ * http://laravel-urls.local/url/full?page=2
  */
-Route::get('full/url', function () {
+Route::get('url/full', function () {
     return URL::full();
+});
+
+/**
+ * Click on this link to go to the url/previous Route
+ *
+ */
+Route::get('click/link', function () {
+    return '<a href="/url/previous">Click me</a>';
+});
+
+/**
+ * Get the previous Url
+ *
+ * http://laravel-urls.local/click/link
+ */
+Route::get('url/previous', function () {
+    return URL::previous();
 });
 
 /*
