@@ -67,7 +67,7 @@ Route::get('url/previous', function () {
 });
 
 /**
- * Generate an absolute url to the homepage
+ * Generate an absolute Url to the homepage
  *
  * http://laravel-urls.local
  */
@@ -76,8 +76,8 @@ Route::get('url/to', function () {
 });
 
 /**
- * Generate an absolute url to the homepage
- * and pass paramters
+ * Generate an absolute Url to the homepage
+ * and pass parameters
  *
  * http://laravel-urls.local/1/bar
  */
@@ -86,12 +86,32 @@ Route::get('url/to/params', function () {
 });
 
 /**
- * Generate a secure absolute URl to the homepage
+ * Generate a secure absolute Url to the homepage
  *
  * https://laravel-urls.local/1/bar
  */
 Route::get('url/to/secure', function () {
     return URL::to('/', ['id' => 1, 'foo' => 'bar'], true);
+});
+
+/**
+ * A named route that calls an action method in
+ * FooController
+ *
+ */
+Route::get('url/named', [
+    'uses' => 'FooController@action',
+    'as' => 'named_route'
+]);
+
+/**
+ *  Generate a url with a parameter id of 1 to the named
+ *  route
+ *
+ * http://laravel-urls.local/url/named?id=1
+ */
+Route::get('url/route', function () {
+    return URL::route('named_route', ['id' => 1]);
 });
 
 /*
