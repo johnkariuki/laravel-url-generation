@@ -11,8 +11,30 @@
 |
 */
 
+/**
+ * Root message for URL generation tutorial
+ *
+ */
 Route::get('/', function () {
-    return view('welcome');
+    return "A little about url generation";
+});
+
+/**
+ * Get the current Url using the URL
+ * facacde
+ *
+ */
+Route::get('/foo', function () {
+    return "<strong>URL::current():</strong> ".  URL::current();
+});
+
+/**
+ * Get the current Url using the url
+ * Service Container Binding
+ *
+ */
+Route::get('/bar', function () {
+    return "<strong>url()->current():</strong> ".  url()->current();
 });
 
 /*
