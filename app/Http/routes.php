@@ -66,6 +66,34 @@ Route::get('url/previous', function () {
     return URL::previous();
 });
 
+/**
+ * Generate an absolute url to the homepage
+ *
+ * http://laravel-urls.local
+ */
+Route::get('url/to', function () {
+    return URL::to('/');
+});
+
+/**
+ * Generate an absolute url to the homepage
+ * and pass paramters
+ *
+ * http://laravel-urls.local/1/bar
+ */
+Route::get('url/to/params', function () {
+    return URL::to('/', ['id' => 1, 'foo' => 'bar']);
+});
+
+/**
+ * Generate a secure absolute URl to the homepage
+ *
+ * https://laravel-urls.local/1/bar
+ */
+Route::get('url/to/secure', function () {
+    return URL::to('/', ['id' => 1, 'foo' => 'bar'], true);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
