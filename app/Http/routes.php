@@ -114,6 +114,17 @@ Route::get('url/route', function () {
     return URL::route('named_route', ['id' => 1]);
 });
 
+/**
+ * Check if a URL is valid or not
+ *
+ */
+Route::get('url/validate', function () {
+    if (URL::isValidUrl('http://laravel-urls.local/url/named')) {
+        return "valid url";
+    }
+    return 'invalid url'
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
