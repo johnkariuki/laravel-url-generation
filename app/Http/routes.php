@@ -37,6 +37,16 @@ Route::get('/bar', function () {
     return "<strong>url()->current():</strong> ".  url()->current();
 });
 
+/**
+ * Get the full URL of the current page including the query string
+ * paramters
+ *
+ * i.e http://example.dev/full/url/?page=2
+ */
+Route::get('full/url', function () {
+    return URL::full();
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
